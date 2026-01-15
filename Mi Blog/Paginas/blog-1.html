@@ -1,0 +1,311 @@
+¿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cómo detectar un correo falso (phishing) | Douglas Rivas</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+  <link rel="shortcut icon" href="../img/Untitled design.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../style/style.css" />
+
+  <style>
+    :root{
+      --ink:#0f172a;
+      --muted:#64748b;
+      --border:#e5e7eb;
+      --soft:#f8fafc;
+      --card:#ffffff;
+      --accent:#2563eb;
+      --danger:#dc2626;
+    }
+
+    .page-wrap{ padding-top:6.5rem; padding-bottom:3rem; }
+
+    .hero{
+      border-radius:18px;
+      background:
+        radial-gradient(900px 420px at 12% 0%, rgba(37,99,235,.22), transparent 60%),
+        radial-gradient(900px 420px at 88% 0%, rgba(220,38,38,.18), transparent 58%),
+        linear-gradient(135deg,#0b1220,#111827);
+      color:#fff;
+    }
+    .hero-inner{ padding:2.4rem; }
+    .hero-title{ font-weight:900; letter-spacing:-.02em; }
+    .hero-sub{ color:rgba(255,255,255,.82); max-width:85ch; }
+    .hero-meta{ color:rgba(255,255,255,.75); font-size:.9rem; }
+    .hero-icon{
+      width:56px;height:56px;border-radius:16px;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.15);
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.5rem;
+    }
+
+    .cardx{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:16px;
+      box-shadow:0 10px 26px rgba(2,6,23,.05);
+    }
+    .cardx-body{ padding:1.8rem; }
+
+    .content p{ color:#334155; line-height:1.85; }
+    .content h2{ margin-top:2.1rem; font-weight:900; color:var(--ink); }
+    .content h3{ margin-top:1.2rem; font-weight:800; color:var(--ink); }
+
+    .callout{
+      border-radius:16px;
+      border:1px solid var(--border);
+      padding:1.1rem 1.2rem;
+      margin:1.6rem 0;
+      background:#fff;
+    }
+    .callout.alert{
+      border-left:4px solid var(--danger);
+      background:linear-gradient(0deg,rgba(220,38,38,.1),rgba(220,38,38,.02));
+    }
+    .callout.info{
+      border-left:4px solid var(--accent);
+      background:linear-gradient(0deg,rgba(37,99,235,.1),rgba(37,99,235,.02));
+    }
+    .callout .title{ font-weight:900; margin-bottom:.35rem; }
+
+    .grid{
+      display:grid;
+      gap:1rem;
+      grid-template-columns:1fr;
+    }
+    @media(min-width:768px){
+      .grid{ grid-template-columns:1fr 1fr; }
+    }
+
+    .mini{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:1.1rem;
+      background:#fff;
+    }
+    .mini strong{ color:var(--ink); }
+
+    .toc{
+      background:var(--soft);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:1.1rem;
+    }
+    .toc a{ text-decoration:none;color:var(--ink); }
+    .toc a:hover{ text-decoration:underline; }
+
+    .actions{ display:flex; gap:.75rem; flex-wrap:wrap; }
+
+    .author-box {
+      margin-top: 1rem;
+      padding: 1.5rem;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="../index.html">
+      <img src="../img/Untitled design.png" style="width:90px;" />
+      Douglas Rivas – Delitos Informáticos
+    </a>
+  </div>
+</nav>
+
+<main class="container page-wrap">
+
+<section class="hero mb-4">
+  <div class="hero-inner">
+    <div class="d-flex gap-3 align-items-start">
+      <div class="hero-icon"><i class="bi bi-envelope-exclamation"></i></div>
+      <div>
+        <span class="badge bg-light text-dark mb-2">Delitos Informáticos y Cibercrimen</span>
+        <h1 class="hero-title mb-2">Cómo detectar un correo falso (phishing)</h1>
+        <p class="hero-sub">
+          Análisis técnico, jurídico y preventivo del phishing como modalidad de fraude digital,
+          sus mecanismos de engaño, consecuencias legales y criterios prácticos para su detección temprana.
+        </p>
+        <div class="hero-meta">
+          <i class="bi bi-calendar3 me-1"></i> 2025 ·
+          <i class="bi bi-clock ms-1 me-1"></i> Lectura 9–10 min
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="row g-4">
+
+<div class="col-lg-8">
+<section class="cardx">
+<div class="cardx-body content">
+
+<p class="lead">
+El phishing constituye una de las manifestaciones más recurrentes del cibercrimen contemporáneo.
+A diferencia de otros delitos informáticos, no depende de vulnerabilidades técnicas complejas,
+sino del aprovechamiento deliberado del error humano, la confianza y la urgencia.
+</p>
+
+<div class="callout alert">
+  <div class="title"><i class="bi bi-exclamation-triangle me-1"></i> Advertencia jurídica</div>
+  <div>
+    La entrega voluntaria de datos a través de phishing no elimina la existencia del delito.
+    El engaño es el elemento central que activa la responsabilidad penal del autor.
+  </div>
+</div>
+
+<h2 id="que-es">1) Concepto jurídico del phishing</h2>
+<p>
+Desde una perspectiva jurídico–penal, el phishing puede definirse como una
+conducta fraudulenta consistente en la creación y utilización de comunicaciones electrónicas falsas
+destinadas a inducir a error a la víctima para obtener un beneficio ilícito.
+</p>
+<p>
+No se trata de un simple “correo engañoso”, sino de una estrategia criminal
+que puede integrar delitos como estafa informática, acceso indebido a sistemas,
+uso ilegítimo de datos personales y, en determinados casos, lavado de activos.
+</p>
+
+<h2 id="por-que-funciona">2) Factores que explican su eficacia</h2>
+<div class="grid">
+  <div class="mini">
+    <strong>Ingeniería social avanzada</strong>
+    <p class="mb-0 text-secondary">
+      El delincuente analiza comportamientos humanos predecibles:
+      miedo a sanciones, pérdida de beneficios, urgencia financiera o autoridad institucional.
+    </p>
+  </div>
+  <div class="mini">
+    <strong>Simulación de legitimidad</strong>
+    <p class="mb-0 text-secondary">
+      Uso de logotipos, firmas, dominios similares y lenguaje institucional
+      para crear apariencia de autenticidad.
+    </p>
+  </div>
+</div>
+
+<h2 id="senales">3) Indicadores técnicos y conductuales de un correo falso</h2>
+<p>
+La detección temprana exige observar tanto elementos técnicos como el contenido del mensaje.
+Entre los principales indicadores se encuentran:
+</p>
+<ul>
+  <li>Solicitudes de datos confidenciales o credenciales de acceso.</li>
+  <li>Mensajes que imponen plazos inmediatos o consecuencias graves.</li>
+  <li>Enlaces con direcciones acortadas o dominios inconsistentes.</li>
+  <li>Errores de formato, redacción o traducciones deficientes.</li>
+  <li>Archivos adjuntos inesperados o no solicitados.</li>
+</ul>
+
+<div class="callout info">
+  <div class="title"><i class="bi bi-info-circle me-1"></i> Criterio profesional</div>
+  <div>
+    En materia de prevención, la duda razonable debe resolverse siempre a favor de la seguridad:
+    no interactuar y verificar por canales oficiales.
+  </div>
+</div>
+
+<h2 id="impacto">4) Consecuencias jurídicas y patrimoniales</h2>
+<p>
+El impacto del phishing no se limita a la pérdida económica inmediata.
+Sus efectos pueden extenderse a:
+</p>
+<ul>
+  <li>Vaciamiento de cuentas bancarias y líneas de crédito.</li>
+  <li>Contratación fraudulenta de servicios.</li>
+  <li>Compromiso de identidad digital.</li>
+  <li>Responsabilidad contractual frente a terceros.</li>
+</ul>
+<p>
+Desde el punto de vista procesal, estos hechos generan
+la necesidad de preservar evidencia digital, activar mecanismos de denuncia
+y, en su caso, iniciar acciones penales y civiles.
+</p>
+
+<h2 id="prevencion">5) Prevención y cultura jurídica digital</h2>
+<p>
+La prevención del phishing no depende exclusivamente de herramientas tecnológicas,
+sino de una adecuada cultura jurídica digital.
+El usuario informado actúa como primera barrera frente al delito.
+</p>
+<p>
+La formación en detección temprana reduce de forma significativa
+la incidencia del fraude y fortalece la seguridad jurídica individual y colectiva.
+</p>
+
+<h2 id="cierre">Conclusión</h2>
+<p>
+El phishing es un fenómeno criminal persistente y adaptable.
+Comprender su lógica, identificar sus señales y actuar con prudencia
+permite neutralizar sus efectos antes de que se materialicen daños mayores.
+</p>
+<p>
+La educación digital y la prevención jurídica
+constituyen hoy herramientas esenciales en la lucha contra el cibercrimen.
+</p>
+
+</div>
+</section>
+</div>
+
+<div class="col-lg-4">
+  <div class="toc mb-4">
+    <strong>Contenido</strong>
+    <ol class="ps-3 mt-2 mb-0">
+      <li><a href="#que-es">Concepto jurídico</a></li>
+      <li><a href="#por-que-funciona">Factores de eficacia</a></li>
+      <li><a href="#senales">Indicadores</a></li>
+      <li><a href="#impacto">Consecuencias</a></li>
+      <li><a href="#prevencion">Prevención</a></li>
+    </ol>
+  </div>
+
+  <div class="cardx">
+    <div class="cardx-body">
+      <strong>Enfoque profesional</strong>
+      <p class="text-secondary mb-0">
+        En delitos informáticos, la anticipación y la correcta preservación de la prueba
+        suelen ser más determinantes que la reacción tardía.
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- AUTOR -->
+      <div class="author-box">
+        <strong>Autor</strong><br />
+        Douglas Rivas<br />
+        <span class="text-secondary">
+          Abogado – Especialista en Derecho Digital, Delitos Informáticos y Nuevas Tecnologías
+        </span>
+      </div>
+
+<div class="mt-4 actions">
+  <a href="blog.html" class="btn btn-outline-secondary">
+    <i class="bi bi-arrow-left me-1"></i> Volver al Blog
+  </a>
+  <a href="contacto.html" class="btn btn-dark">
+    <i class="bi bi-chat-dots me-1"></i> Consulta profesional
+  </a>
+</div>
+
+</main>
+
+<footer class="py-3 bg-dark text-center text-secondary small mt-5">
+  © 2025 Douglas Rivas – Derecho Digital y Delitos Informáticos
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -6,44 +6,168 @@
   <title>Blog Douglas Rivas - Delitos Informáticos</title>
 
   <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  >
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Iconos Bootstrap -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-  >
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-  <!-- Estilos del estudiante -->
   <link rel="stylesheet" href="style/style.css">
-
-    <!-- Estilos del estudiante -->
-    <link rel="shortcut icon" href="img/Untitled design.png" type="image/x-icon">
+  <link rel="shortcut icon" href="img/Untitled design.png" type="image/x-icon">
 
   <style>
-  .index-img{
-    width: 600px;
-    border-radius: 20px;
-    margin-bottom: 50px;
+    .img-nav{ width: 100px; }
+    html, body { height: 100%; }
+
+    body{
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    footer{ margin-top: auto; }
+
+    /* ✅ HERO: padding controlado (evita que quede muy alto) */
+    .hero{
+      padding: 2.25rem 0 2.25rem;
+    }
+    @media (max-width: 576px){
+      .hero{
+        padding: 1.5rem 0 1.75rem;
+      }
+    }
+
+    /* ✅ Carrusel: más pequeño y equilibrado */
+    .hero-carousel{
+      border-radius: 1.25rem;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .hero-carousel .carousel-inner{ border-radius: 1.25rem; }
+
+    /* Desktop */
+    .hero-carousel .carousel-item img{
+      height: 330px;           /* ⬅ antes 380 */
+      width: 100%;
+      object-fit: cover;
+      filter: saturate(1.05) contrast(1.05);
+    }
+
+    /* Tablet */
+    @media (max-width: 992px){
+      .hero-carousel .carousel-item img{
+        height: 260px;
+      }
+    }
+    .hero-carousel .carousel-caption{
+      left: 6%;
+      right: 6%;
+      bottom: 1rem;
+      text-align: left;
+      display: block !important;
+    }
+    @media (max-width: 576px){
+      .hero-carousel .carousel-caption{
+        left: 4%;
+        right: 4%;
+        bottom: .65rem;
+      }
+    }
+    /* ✅ TIPOGRAFÍA HERO – más compacta en móvil */
+@media (max-width: 576px){
+  header.hero h1{
+    font-size: 1.55rem !important;  
+    line-height: 1.12 !important;
+    margin-bottom: .6rem !important;
   }
-  .img-nav{
-    width: 100px;
+
+  header.hero p.lead{
+    font-size: 0.95rem !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Botones un poco más pequeños */
+  header.hero .btn{
+    font-size: 0.9rem;
+    padding: .45rem .75rem;
+  }
+}
+
+/* ✅ Tablet (md) ajuste intermedio */
+@media (min-width: 577px) and (max-width: 991.98px){
+  header.hero h1{
+    font-size: 1.40rem !important;
+    line-height: 1.15 !important;
+    margin-bottom: .6rem !important;
+  }
+
+  header.hero p.lead{
+    font-size: 1.05rem !important;
+    }
+}
+    .hero-carousel .cap-box{
+      background: rgba(0,0,0,.58);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 16px;
+      padding: .85rem .95rem;   /* ⬅ un poco más compacto */
+      max-width: 560px;
+    }
+    @media (max-width: 576px){
+      .hero-carousel .cap-box{
+        max-width: 100%;
+        padding: .75rem .85rem;
+      }
+      .hero-carousel .cap-box h5{ font-size: 1.05rem; }
+      .hero-carousel .cap-box p{ font-size: .95rem; }
+    }
+
+    .hero-carousel .cap-box h5{
+      margin: 0 0 .25rem 0;
+      font-weight: 800;
+    }
+    .hero-carousel .cap-box p{
+      margin: 0;
+      opacity: .9;
+    }
+    .hero-carousel .carousel-indicators [data-bs-target]{
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+    }
+
+    /* Navbar brand responsive */
+    @media (max-width: 576px){
+      .img-nav{ width: 52px; }
+      .navbar-brand{ font-size: 1.05rem; }
     }
   </style>
-
 </head>
+
 <body>
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="index.html">
-      <img src="img/Untitled design.png" alt="Foto" class="img-nav">
-      Douglas Rivas - Delitos Informáticos
-    </a>
+    <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="index.html">
+  <img src="img/Untitled design.png" alt="Foto" class="img-nav">
+
+  <!-- Texto móvil -->
+  <span class="d-inline d-sm-none">
+    Douglas Rivas - Delitos Informaticos
+  </span>
+
+  <!-- Texto tablet -->
+  <span class="d-none d-sm-inline d-lg-none">
+    Douglas Rivas – Delitos Informaticos
+  </span>
+
+  <!-- Texto desktop -->
+  <span class="d-none d-lg-inline">
+    Douglas Rivas – Delitos Informáticos
+  </span>
+</a>
+
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
       <span class="navbar-toggler-icon"></span>
@@ -53,7 +177,8 @@
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
         <li class="nav-item"><a class="nav-link" href="Paginas/biografi.html">Biografía</a></li>
-        <li class="nav-item"><a class="nav-link" href="Paginas/recursos.html">Recursos</a></li>
+        <li class="nav-item"><a class="nav-link" href="Paginas/categorias.html">Categorias</a></li>
+        <li class="nav-item"><a class="nav-link" href="Paginas/blog.html">Blog</a></li>
         <li class="nav-item"><a class="nav-link" href="Paginas/contacto.html">Contacto</a></li>
       </ul>
     </div>
@@ -62,32 +187,88 @@
 
 <!-- HERO -->
 <header id="inicio" class="bg-dark text-light hero">
-  <div class="container h-100 d-flex align-items-center">
-    <div class="row w-100 align-items-center">
+  <!-- ✅ Quité h-100 d-flex align-items-center para que no suba el carrusel y no corte texto -->
+  <div class="container">
+    <div class="row w-100 align-items-center g-4">
+
       <div class="col-lg-6">
         <h1 class="display-5 fw-bold mb-3">
-          Delitos informáticos explicados de forma sencilla
+          Delitos informáticos y derecho digital explicados de forma sencilla
         </h1>
         <p class="lead">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium doloribus vo
-          luptas tempore adipisci nostrum amet alias laboriosam consectetur, ea debitis, cupiditate quam, illum unde dolor quos eos fugit dolorem maiores!
+          En este blog encontrarás artículos claros sobre delitos informáticos,
+          evidencia digital y protección de datos, explicados de forma sencilla
+          para todo público.
         </p>
 
         <div class="mt-3 d-flex flex-wrap gap-2">
-          <a href="Paginas/biografi.html" class="btn btn-primary">
-            Conocer al abogado
-          </a>
-          <a href="Paginas/recursos.html" class="btn btn-outline-light">
-            Ver artículos
-          </a>
+          <a href="Paginas/biografi.html" class="btn btn-primary">Sobre el Autor</a>
+          <a href="Paginas/blog.html" class="btn btn-outline-light">Leer el Blog</a>
         </div>
       </div>
 
-      <div class="col-lg-6 text-center mt-4 mt-lg-0">
-        <div>
-          <img src="img/inicio.jpg" alt="Foto Douglas Rivas" class="index-img">
+      <!-- Carrusel -->
+      <!-- ✅ Eliminé el margin-bottom 100px y agregué wrapper para ajustar en desktop -->
+      <div class="col-lg-6 mt-2 mt-lg-0 carousel-wrap">
+
+        <div id="carouselExampleCaptions" class="carousel slide carousel-fade hero-carousel" data-bs-ride="carousel" data-bs-touch="true">
+
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+
+          <div class="carousel-inner">
+
+            <div class="carousel-item active" data-bs-interval="5500">
+              <img src="img/Foto Radio legislativa.jpg" class="d-block w-100" alt="Entrevista Canal 12">
+              <div class="carousel-caption">
+                <div class="cap-box">
+                  <span class="badge bg-primary mb-2"><i class="bi bi-broadcast me-1"></i> Medios</span>
+                  <h5>Entrevista Radio Legislativa</h5>
+                  <p>Divulgación jurídica sobre delitos informáticos, prevención y cultura digital.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item" data-bs-interval="5500">
+              <img src="img/inicio.jpg" class="d-block w-100" alt="Derecho digital y nuevas tecnologías">
+              <div class="carousel-caption">
+                <div class="cap-box">
+                  <span class="badge bg-warning text-dark mb-2"><i class="bi bi-shield-lock me-1"></i> Derecho Digital</span>
+                  <h5>Derecho digital y nuevas tecnologías</h5>
+                  <p>Protección de datos, evidencia digital y seguridad jurídica en entornos tecnológicos.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item" data-bs-interval="5500">
+              <img src="img/Foto Hola ES.jpg" class="d-block w-100" alt="Entrevista Hola El Salvador">
+              <div class="carousel-caption">
+                <div class="cap-box">
+                  <span class="badge bg-info text-dark mb-2"><i class="bi bi-mic me-1"></i> Entrevista</span>
+                  <h5>Hola El Salvador</h5>
+                  <p>Análisis y recomendaciones prácticas ante fraudes digitales y cibercrimen.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev" aria-label="Anterior">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next" aria-label="Siguiente">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
+
         </div>
       </div>
+
     </div>
   </div>
 </header>
@@ -95,7 +276,7 @@
 <!-- ARTÍCULOS -->
 <section class="py-5 section-main">
   <div class="container">
-    <h2 class="text-center mb-4">Artículos recientes</h2>
+    <h2 class="text-center mb-4">Ultimos Articulos</h2>
 
     <div class="row g-4">
       <div class="col-md-4">
@@ -103,10 +284,8 @@
           <div class="card-body">
             <span class="badge bg-primary mb-2">Phishing</span>
             <h5 class="card-title">Cómo detectar un correo falso</h5>
-            <p class="card-text">
-              Señales para identificar correos que intentan engañarte.
-            </p>
-            <a href="Paginas/recursos.html#phishing" class="card-link">Leer más</a>
+            <p class="card-text">Señales para identificar correos que intentan engañarte.</p>
+            <a href="Paginas/blog-1.html" class="card-link">Leer más</a>
           </div>
         </div>
       </div>
@@ -114,12 +293,10 @@
       <div class="col-md-4">
         <div class="card h-100 card-blog">
           <div class="card-body">
-            <span class="badge bg-success mb-2">Protección de datos</span>
-            <h5 class="card-title">Qué hacer si filtran tus datos</h5>
-            <p class="card-text">
-              Pasos básicos si descubres que tu información se filtró.
-            </p>
-            <a href="Paginas/recursos.html#datos" class="card-link">Leer más</a>
+            <span class="badge bg-success mb-2">Derecho Digital</span>
+            <h5 class="card-title">Firma electrónica</h5>
+            <p class="card-text">Conceptos basicos sobre la firma electrónica y en que momento conviene usarla.</p>
+            <a href="Paginas/blog-3.html" class="card-link">Leer más</a>
           </div>
         </div>
       </div>
@@ -129,10 +306,8 @@
           <div class="card-body">
             <span class="badge bg-warning text-dark mb-2">Evidencia digital</span>
             <h5 class="card-title">Guardar pruebas digitales</h5>
-            <p class="card-text">
-              Cómo guardar capturas y mensajes sin dañarlos.
-            </p>
-            <a href="Paginas/recursos.html#evidencia" class="card-link">Leer más</a>
+            <p class="card-text">Cómo guardar capturas y mensajes sin dañarlos.</p>
+            <a href="Paginas/blog-2.html" class="card-link">Leer más</a>
           </div>
         </div>
       </div>
@@ -144,9 +319,14 @@
 <!-- CTA -->
 <section class="py-5 bg-primary text-light text-center">
   <div class="container">
-    <h2>¿Necesitas ayuda legal?</h2>
-    <p>Este blog es informativo. Si necesitas contactar, usa el formulario.</p>
-    <a href="Paginas/contacto.html" class="btn btn-light">Ir al formulario</a>
+    <h2>¿Enfrentas un problema legal vinculado a tecnología?</h2>
+    <p>
+      Los delitos informáticos, la evidencia digital y la ciberseguridad
+      requieren un enfoque jurídico y técnico especializado.
+      Si necesitas orientación legal en estas materias,
+      puedes comunicarte mediante el formulario de contacto.
+    </p>
+    <a href="Paginas/contacto.html" class="btn btn-light">Contactar</a>
   </div>
 </section>
 
@@ -158,6 +338,5 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>

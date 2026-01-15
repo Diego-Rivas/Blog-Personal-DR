@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La prueba en el proceso penal: ideas esenciales | Douglas Rivas</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+  <link rel="shortcut icon" href="../img/Untitled design.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../style/style.css" />
+
+  <style>
+    :root{
+      --ink:#0f172a;
+      --muted:#64748b;
+      --border:#e5e7eb;
+      --soft:#f8fafc;
+      --card:#ffffff;
+
+      --accent:#6b7280;   /* gris penal */
+      --accent2:#8b5cf6;  /* violeta jurídico */
+    }
+
+    .page-wrap{ padding-top:6.5rem; padding-bottom:3rem; }
+
+    /* HERO */
+    .hero{
+      border-radius:18px;
+      background:
+        radial-gradient(900px 420px at 10% 0%, rgba(139,92,246,.22), transparent 60%),
+        radial-gradient(900px 420px at 90% 0%, rgba(107,114,128,.22), transparent 58%),
+        linear-gradient(135deg,#0b1220,#111827);
+      color:#fff;
+    }
+    .hero-inner{ padding:2.2rem; }
+    .hero-title{ font-weight:900; letter-spacing:-.02em; }
+    .hero-sub{ color:rgba(255,255,255,.8); max-width:78ch; }
+    .hero-meta{ color:rgba(255,255,255,.75); font-size:.9rem; }
+    .hero-icon{
+      width:56px;height:56px;border-radius:16px;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.15);
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.5rem;
+    }
+
+    /* CARDS */
+    .cardx{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:16px;
+      box-shadow:0 10px 26px rgba(2,6,23,.05);
+    }
+    .cardx-body{ padding:1.6rem; }
+
+    /* CONTENT */
+    .content p{ color:#334155; line-height:1.75; }
+    .content h2{ margin-top:1.9rem; font-weight:900; color:var(--ink); }
+    .content h3{ margin-top:1.2rem; font-weight:800; color:var(--ink); }
+
+    /* CALLOUTS */
+    .callout{
+      border-radius:16px;
+      border:1px solid var(--border);
+      padding:1rem 1.1rem;
+      margin:1.3rem 0;
+      background:#fff;
+    }
+    .callout.info{
+      border-left:4px solid var(--accent2);
+      background:linear-gradient(0deg,rgba(139,92,246,.1),rgba(139,92,246,.02));
+    }
+    .callout.warn{
+      border-left:4px solid var(--accent);
+      background:linear-gradient(0deg,rgba(107,114,128,.12),rgba(107,114,128,.03));
+    }
+    .callout .title{ font-weight:900; margin-bottom:.3rem; }
+
+    /* GRID */
+    .grid{
+      display:grid;
+      gap:1rem;
+      grid-template-columns:1fr;
+    }
+    @media(min-width:768px){
+      .grid{ grid-template-columns:1fr 1fr; }
+    }
+
+    .mini{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:1rem;
+      background:#fff;
+    }
+    .mini strong{ color:var(--ink); }
+
+    .toc{
+      background:var(--soft);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:1rem 1.1rem;
+    }
+    .toc a{ text-decoration:none;color:var(--ink); }
+    .toc a:hover{ text-decoration:underline; }
+
+    .actions{ display:flex; gap:.75rem; flex-wrap:wrap; }
+
+    .author-box {
+      margin-top: 1rem;
+      padding: 1.5rem;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="../index.html">
+      <img src="../img/Untitled design.png" style="width:90px;" />
+      Douglas Rivas – Delitos Informáticos
+    </a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="biografi.html">Biografía</a></li>
+        <li class="nav-item"><a class="nav-link" href="categorias.html">Categorías</a></li>
+        <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container page-wrap">
+
+<!-- HERO -->
+<section class="hero mb-4">
+  <div class="hero-inner">
+    <div class="d-flex gap-3 align-items-start">
+      <div class="hero-icon"><i class="bi bi-journal-text"></i></div>
+      <div>
+        <span class="badge bg-light text-dark mb-2">Derecho Penal y Procesal</span>
+        <h1 class="hero-title mb-2">La prueba en el proceso penal: ideas esenciales</h1>
+        <p class="hero-sub">
+          Una explicación clara sobre cómo se obtiene, incorpora y valora la prueba
+          en el proceso penal moderno, con especial atención a la prueba digital.
+        </p>
+        <div class="hero-meta">
+          <i class="bi bi-calendar3 me-1"></i> 2025 ·
+          <i class="bi bi-clock ms-1 me-1"></i> Lectura 8 min
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="row g-4">
+
+<!-- ARTICLE -->
+<div class="col-lg-8">
+  <section class="cardx">
+    <div class="cardx-body content">
+
+      <p class="lead">
+        En el proceso penal, la prueba no es un complemento del debate:
+        es el eje sobre el cual se construye la verdad procesal.
+        Ninguna acusación ni defensa prospera sin prueba válida,
+        obtenida y valorada conforme a la ley.
+      </p>
+
+      <div class="callout info">
+        <div class="title"><i class="bi bi-lightbulb me-1"></i> Principio rector</div>
+        <div>
+          En materia penal, no basta con que algo sea cierto:
+          debe poder demostrarse mediante prueba lícita y verificable.
+        </div>
+      </div>
+
+      <h2 id="concepto">1) ¿Qué se entiende por prueba en el proceso penal?</h2>
+      <p>
+        La prueba es todo medio legalmente incorporado al proceso
+        que permite al juez formarse convicción sobre los hechos.
+        Su función no es confirmar sospechas,
+        sino sustentar decisiones respetando garantías constitucionales.
+      </p>
+
+      <h2 id="principios">2) Principios que rigen la actividad probatoria</h2>
+      <div class="grid">
+        <div class="mini">
+          <strong>Legalidad</strong>
+          <p class="mb-0 text-secondary">
+            La prueba debe obtenerse conforme a la ley.
+            La ilicitud en su origen puede provocar exclusión.
+          </p>
+        </div>
+        <div class="mini">
+          <strong>Contradicción</strong>
+          <p class="mb-0 text-secondary">
+            Toda prueba debe poder ser conocida,
+            discutida y controvertida por las partes.
+          </p>
+        </div>
+        <div class="mini">
+          <strong>Inmediación</strong>
+          <p class="mb-0 text-secondary">
+            El juez debe tener contacto directo con la prueba producida en juicio.
+          </p>
+        </div>
+        <div class="mini">
+          <strong>Motivación</strong>
+          <p class="mb-0 text-secondary">
+            La valoración probatoria debe ser razonada,
+            no arbitraria ni automática.
+          </p>
+        </div>
+      </div>
+
+      <h2 id="etapas">3) Etapas de la prueba en el proceso penal</h2>
+      <p>
+        La actividad probatoria se desarrolla en tres momentos clave:
+      </p>
+      <ul>
+        <li><strong>Obtención:</strong> recolección de la prueba por los órganos de investigación.</li>
+        <li><strong>Incorporación:</strong> admisión formal dentro del proceso.</li>
+        <li><strong>Valoración:</strong> análisis judicial conforme a la sana crítica.</li>
+      </ul>
+
+      <div class="callout warn">
+        <div class="title"><i class="bi bi-exclamation-triangle me-1"></i> Advertencia</div>
+        <div>
+          Un defecto en cualquiera de estas etapas puede afectar
+          la eficacia de la prueba o provocar su exclusión.
+        </div>
+      </div>
+
+      <h2 id="digital">4) La prueba digital en el proceso penal actual</h2>
+      <p>
+        Correos electrónicos, registros de sistemas,
+        mensajes instantáneos y archivos digitales
+        son hoy medios probatorios habituales.
+        Sin embargo, su valoración exige especial cuidado
+        por su facilidad de alteración.
+      </p>
+      <p>
+        En estos casos cobran relevancia la cadena de custodia,
+        el análisis pericial y la coherencia entre el dato técnico
+        y el hecho jurídico que se pretende probar.
+      </p>
+
+      <h2 id="valoracion">5) Valoración judicial de la prueba</h2>
+      <p>
+        El juez penal no puede delegar su función decisoria en peritos.
+        La prueba técnica debe ser comprendida,
+        contextualizada y valorada críticamente.
+      </p>
+      <p>
+        La sentencia debe explicar por qué una prueba genera convicción
+        y por qué otra se descarta.
+      </p>
+
+      <h2 id="cierre">Conclusión</h2>
+      <p>
+        La prueba es el corazón del proceso penal.
+        Su correcta obtención y valoración
+        garantiza decisiones legítimas
+        y protege los derechos fundamentales de las partes.
+      </p>
+
+    </div>
+  </section>
+</div>
+
+<!-- SIDEBAR -->
+<div class="col-lg-4">
+  <div class="toc mb-4">
+    <strong>En esta guía</strong>
+    <ol class="ps-3 mt-2 mb-0">
+      <li><a href="#concepto">Concepto de prueba</a></li>
+      <li><a href="#principios">Principios probatorios</a></li>
+      <li><a href="#etapas">Etapas</a></li>
+      <li><a href="#digital">Prueba digital</a></li>
+      <li><a href="#valoracion">Valoración judicial</a></li>
+    </ol>
+  </div>
+
+  <div class="cardx">
+    <div class="cardx-body">
+      <strong>Enfoque profesional</strong>
+      <p class="text-secondary mb-0">
+        En delitos informáticos y cibercrimen,
+        la prueba digital suele ser decisiva.
+        Una correcta preservación puede marcar la diferencia
+        entre condena y absolución.
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- AUTOR -->
+      <div class="author-box">
+        <strong>Autor</strong><br />
+        Douglas Rivas<br />
+        <span class="text-secondary">
+          Abogado – Especialista en Derecho Digital, Delitos Informáticos y Nuevas Tecnologías
+        </span>
+      </div>
+
+<div class="mt-4 actions">
+  <a href="blog.html" class="btn btn-outline-secondary">
+    <i class="bi bi-arrow-left me-1"></i> Volver al Blog
+  </a>
+  <a href="contacto.html" class="btn btn-dark">
+    <i class="bi bi-chat-dots me-1"></i> Consultar
+  </a>
+</div>
+
+</main>
+
+<footer class="py-3 bg-dark text-center text-secondary small mt-5">
+  © 2025 Douglas Rivas – Derecho Digital y Delitos Informáticos
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

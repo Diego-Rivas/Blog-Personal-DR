@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Firma electrónica: qué es y cuándo conviene usarla | Douglas Rivas</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+  <link rel="shortcut icon" href="../img/Untitled design.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../style/style.css" />
+
+  <style>
+    :root{
+      --border:#e5e7eb;
+      --soft:#f8fafc;
+      --ink:#0f172a;
+      --muted:#64748b;
+      --accent:#2563eb;   /* azul digital */
+      --accent2:#22c55e;  /* verde confianza */
+    }
+
+    .page-wrap{ padding-top:6.5rem; padding-bottom:3rem; }
+
+    /* HERO */
+    .hero{
+      border-radius:18px;
+      background:
+        radial-gradient(900px 420px at 10% 0%, rgba(37,99,235,.22), transparent 60%),
+        radial-gradient(900px 420px at 90% 0%, rgba(34,197,94,.18), transparent 58%),
+        linear-gradient(135deg,#0b1220,#111827);
+      color:#fff;
+    }
+    .hero-inner{ padding:2.2rem; }
+    .hero-title{ font-weight:900; letter-spacing:-.02em; }
+    .hero-sub{ color:rgba(255,255,255,.8); max-width:75ch; }
+    .hero-meta{ color:rgba(255,255,255,.75); font-size:.9rem; }
+    .hero-icon{
+      width:56px;height:56px;border-radius:16px;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.15);
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.5rem;
+    }
+
+    /* CARDS */
+    .cardx{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:16px;
+      box-shadow:0 10px 26px rgba(2,6,23,.05);
+    }
+    .cardx-body{ padding:1.6rem; }
+
+    /* CONTENT */
+    .content p{ color:#334155; line-height:1.75; }
+    .content h2{ margin-top:1.8rem; font-weight:900; color:var(--ink); }
+    .content h3{ margin-top:1.1rem; font-weight:800; color:var(--ink); }
+
+    /* CALLOUTS */
+    .callout{
+      border-radius:16px;
+      border:1px solid var(--border);
+      padding:1rem 1.1rem;
+      margin:1.3rem 0;
+      background:#fff;
+    }
+    .callout.info{
+      border-left:4px solid var(--accent);
+      background:linear-gradient(0deg,rgba(37,99,235,.1),rgba(37,99,235,.02));
+    }
+    .callout.success{
+      border-left:4px solid var(--accent2);
+      background:linear-gradient(0deg,rgba(34,197,94,.1),rgba(34,197,94,.02));
+    }
+    .callout .title{ font-weight:900; margin-bottom:.3rem; }
+
+    /* GRID */
+    .grid{
+      display:grid;
+      gap:1rem;
+      grid-template-columns:1fr;
+    }
+    @media(min-width:768px){
+      .grid{ grid-template-columns:1fr 1fr; }
+    }
+
+    .mini{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:1rem;
+      background:#fff;
+    }
+    .mini strong{ color:var(--ink); }
+
+    .toc{
+      background:var(--soft);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:1rem 1.1rem;
+    }
+    .toc a{ text-decoration:none;color:var(--ink); }
+    .toc a:hover{ text-decoration:underline; }
+
+    .actions{ display:flex; gap:.75rem; flex-wrap:wrap; }
+
+        .author-box {
+      margin-top: 1rem;
+      padding: 1.5rem;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="../index.html">
+      <img src="../img/Untitled design.png" style="width:90px;" />
+      Douglas Rivas – Delitos Informáticos
+    </a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="biografi.html">Biografía</a></li>
+        <li class="nav-item"><a class="nav-link" href="categorias.html">Categorías</a></li>
+        <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container page-wrap">
+
+<!-- HERO -->
+<section class="hero mb-4">
+  <div class="hero-inner">
+    <div class="d-flex gap-3 align-items-start">
+      <div class="hero-icon"><i class="bi bi-pen"></i></div>
+      <div>
+        <span class="badge bg-light text-dark mb-2">Derecho Digital</span>
+        <h1 class="hero-title mb-2">Firma electrónica: qué es y cuándo conviene usarla</h1>
+        <p class="hero-sub">
+          Una guía clara para comprender su valor jurídico, límites y usos prácticos
+          en contratos, trámites y relaciones digitales.
+        </p>
+        <div class="hero-meta">
+          <i class="bi bi-calendar3 me-1"></i> 2025 ·
+          <i class="bi bi-clock ms-1 me-1"></i> Lectura 7 min
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="row g-4">
+
+<!-- ARTICLE -->
+<div class="col-lg-8">
+  <section class="cardx">
+    <div class="cardx-body content">
+
+      <p class="lead">
+        La firma electrónica es uno de los instrumentos más relevantes del Derecho Digital moderno.
+        Permite expresar consentimiento jurídico en entornos electrónicos,
+        pero su uso incorrecto puede generar errores, nulidades o conflictos probatorios.
+      </p>
+
+      <div class="callout info">
+        <div class="title"><i class="bi bi-info-circle me-1"></i> Idea clave</div>
+        <div>
+          No toda firma electrónica tiene el mismo valor jurídico.
+          Su eficacia depende del contexto, del tipo de documento y de cómo se utiliza.
+        </div>
+      </div>
+
+      <h2 id="concepto">1) ¿Qué es la firma electrónica?</h2>
+      <p>
+        Es un mecanismo tecnológico que permite identificar al firmante
+        y vincularlo con un documento digital, manifestando su voluntad.
+        Su función es equivalente a la firma manuscrita,
+        siempre que cumpla con los requisitos legales aplicables.
+      </p>
+
+      <h2 id="tipos">2) Tipos de firma electrónica</h2>
+      <div class="grid">
+        <div class="mini">
+          <strong>Firma electrónica simple</strong>
+          <p class="mb-0 text-secondary">
+            Útil para gestiones básicas. Tiene menor fuerza probatoria
+            y suele requerir elementos adicionales para ser validada.
+          </p>
+        </div>
+        <div class="mini">
+          <strong>Firma electrónica avanzada</strong>
+          <p class="mb-0 text-secondary">
+            Incorpora mayores garantías de autenticidad,
+            integridad y control del firmante.
+          </p>
+        </div>
+      </div>
+
+      <h2 id="uso">3) ¿Cuándo conviene usarla?</h2>
+      <p>
+        La firma electrónica es especialmente recomendable cuando:
+      </p>
+      <ul>
+        <li>Las partes se encuentran en lugares distintos.</li>
+        <li>Se requiere rapidez y trazabilidad.</li>
+        <li>El documento será almacenado digitalmente.</li>
+        <li>Existen mecanismos de verificación confiables.</li>
+      </ul>
+
+      <div class="callout success">
+        <div class="title"><i class="bi bi-shield-check me-1"></i> Recomendación práctica</div>
+        <div>
+          Antes de firmar electrónicamente, verifica que el documento final
+          coincida exactamente con lo negociado y guarda una copia íntegra.
+        </div>
+      </div>
+
+      <h2 id="valor">4) Valor probatorio en caso de conflicto</h2>
+      <p>
+        En un proceso judicial, la firma electrónica será valorada junto con:
+        registros técnicos, correos, metadatos, trazabilidad del sistema
+        y conducta previa de las partes.
+      </p>
+      <p>
+        La firma no actúa sola: forma parte de un conjunto probatorio.
+      </p>
+
+      <h2 id="cierre">Conclusión</h2>
+      <p>
+        La firma electrónica no es solo una herramienta tecnológica,
+        sino un instrumento jurídico que debe utilizarse con criterio.
+        Bien empleada, agiliza trámites y fortalece la seguridad jurídica;
+        mal utilizada, genera conflictos evitables.
+      </p>
+
+    </div>
+  </section>
+</div>
+
+<!-- SIDEBAR -->
+<div class="col-lg-4">
+  <div class="toc mb-4">
+    <strong>En esta guía</strong>
+    <ol class="ps-3 mt-2 mb-0">
+      <li><a href="#concepto">Qué es</a></li>
+      <li><a href="#tipos">Tipos</a></li>
+      <li><a href="#uso">Cuándo usarla</a></li>
+      <li><a href="#valor">Valor probatorio</a></li>
+      <li><a href="#cierre">Conclusión</a></li>
+    </ol>
+  </div>
+
+  <div class="cardx">
+    <div class="cardx-body">
+      <strong>Nota profesional</strong>
+      <p class="text-secondary mb-0">
+        En contratos relevantes o con efectos económicos importantes,
+        conviene asesorarse antes de firmar electrónicamente
+        para evitar nulidades o problemas de prueba.
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- AUTOR -->
+      <div class="author-box">
+        <strong>Autor</strong><br />
+        Douglas Rivas<br />
+        <span class="text-secondary">
+          Abogado – Especialista en Derecho Digital, Delitos Informáticos y Nuevas Tecnologías
+        </span>
+      </div>
+
+<div class="mt-4 actions">
+  <a href="blog.html" class="btn btn-outline-secondary">
+    <i class="bi bi-arrow-left me-1"></i> Volver al Blog
+  </a>
+  <a href="contacto.html" class="btn btn-dark">
+    <i class="bi bi-chat-dots me-1"></i> Consultar
+  </a>
+</div>
+
+</main>
+
+<footer class="py-3 bg-dark text-center text-secondary small mt-5">
+  © 2025 Douglas Rivas – Derecho Digital y Delitos Informáticos
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

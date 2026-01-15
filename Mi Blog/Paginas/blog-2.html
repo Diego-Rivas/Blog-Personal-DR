@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cómo guardar pruebas digitales sin dañarlas | Douglas Rivas</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Iconos Bootstrap -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+  />
+
+  <link rel="shortcut icon" href="../img/Untitled design.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../style/style.css" />
+
+  <style>
+    :root{
+      --ink:#0b1220;
+      --slate:#0f172a;
+      --muted:#64748b;
+      --card:#ffffff;
+      --border:#e5e7eb;
+      --soft:#f8fafc;
+      --accent:#f59e0b;      /* evidencia */
+      --accent-2:#06b6d4;    /* cian */
+    }
+
+    .page-wrap{
+      padding-top: 6.5rem;
+      padding-bottom: 3rem;
+    }
+
+    /* HERO */
+    .hero{
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.10);
+      background:
+        radial-gradient(900px 360px at 10% 0%, rgba(245,158,11,0.22), transparent 60%),
+        radial-gradient(900px 360px at 90% 0%, rgba(6,182,212,0.16), transparent 60%),
+        linear-gradient(135deg, #0b1220 0%, #111827 55%, #0b1220 100%);
+      color: #fff;
+      position: relative;
+    }
+    .hero-inner{
+      padding: 2.2rem 2.2rem;
+    }
+    .hero .badge{
+      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.08);
+      color:#fff;
+      font-weight:600;
+    }
+    .hero-title{
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .hero-sub{
+      color: rgba(255,255,255,0.75);
+      max-width: 70ch;
+    }
+    .hero-meta{
+      color: rgba(255,255,255,0.75);
+      font-size: .92rem;
+    }
+    .hero-icon{
+      width: 56px; height: 56px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.14);
+      display:flex; align-items:center; justify-content:center;
+      font-size: 1.5rem;
+    }
+
+    /* LAYOUT */
+    .article-card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 10px 26px rgba(2,6,23,0.05);
+    }
+    .article-body{
+      padding: 1.6rem;
+    }
+
+    .toc{
+      background: var(--soft);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem 1.1rem;
+    }
+    .toc a{
+      text-decoration:none;
+      color: var(--slate);
+    }
+    .toc a:hover{
+      text-decoration:underline;
+    }
+    .toc .small{
+      color: var(--muted);
+    }
+
+    /* TYPO */
+    .content p{
+      color: #334155;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .content h2{
+      margin-top: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: #0f172a;
+    }
+    .content h3{
+      margin-top: 1.2rem;
+      font-weight: 750;
+      color: #0f172a;
+    }
+
+    /* INFO BLOCKS */
+    .callout{
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+    .callout.warning{
+      border-left: 4px solid var(--accent);
+      background: linear-gradient(0deg, rgba(245,158,11,0.08), rgba(245,158,11,0.02));
+    }
+    .callout.info{
+      border-left: 4px solid var(--accent-2);
+      background: linear-gradient(0deg, rgba(6,182,212,0.08), rgba(6,182,212,0.02));
+    }
+    .callout .title{
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: .35rem;
+    }
+
+    /* CHECKLIST */
+    .checklist{
+      display:grid;
+      gap:.75rem;
+      margin-top: .75rem;
+    }
+    .check-item{
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: .85rem .95rem;
+      background:#fff;
+      display:flex;
+      gap:.75rem;
+      align-items:flex-start;
+    }
+    .check-icon{
+      width: 38px; height: 38px;
+      border-radius: 12px;
+      display:flex; align-items:center; justify-content:center;
+      flex: 0 0 auto;
+      background: rgba(245,158,11,0.14);
+      color: #b45309;
+      border: 1px solid rgba(245,158,11,0.22);
+    }
+    .check-item strong{ color:#0f172a; }
+
+    /* MINI CARDS */
+    .mini-card{
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem;
+      background: #fff;
+      height: 100%;
+    }
+    .mini-card .k{
+      color: var(--muted);
+      font-size: .9rem;
+      margin-bottom: .35rem;
+    }
+    .mini-card .v{
+      font-weight: 800;
+      color:#0f172a;
+      font-size: 1.05rem;
+    }
+
+    /* FOOT */
+    .back-actions{
+      display:flex;
+      gap:.75rem;
+      flex-wrap:wrap;
+    }
+
+    /* responsive polish */
+    @media (max-width: 991px){
+      .hero-sub{ max-width: 100%; }
+      .hero-inner{ padding: 1.6rem; }
+    }
+
+    .author-box {
+      margin-top: 1rem;
+      padding: 1.5rem;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="../index.html">
+      <img src="../img/Untitled design.png" alt="Logo" style="width: 90px;" />
+      Douglas Rivas – Delitos Informáticos
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="biografi.html">Biografía</a></li>
+        <li class="nav-item"><a class="nav-link" href="categorias.html">Categorías</a></li>
+        <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container page-wrap">
+
+  <!-- HERO -->
+  <section class="hero mb-4">
+    <div class="hero-inner">
+      <div class="d-flex flex-wrap justify-content-between align-items-start gap-3">
+        <div class="d-flex gap-3 align-items-start">
+          <div class="hero-icon" aria-hidden="true">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <div>
+            <span class="badge rounded-pill mb-2">
+              <i class="bi bi-folder me-1"></i> Evidencia Digital
+            </span>
+            <h1 class="hero-title mb-2">Cómo guardar pruebas digitales sin dañarlas</h1>
+            <p class="hero-sub mb-0">
+              Guía práctica para conservar chats, capturas, audios y archivos con criterios
+              de integridad y trazabilidad, pensando en su posible uso en un proceso.
+            </p>
+          </div>
+        </div>
+        <div class="hero-meta text-end">
+          <div><i class="bi bi-calendar3 me-1"></i> 2025</div>
+          <div><i class="bi bi-clock me-1"></i> Lectura: 6–8 min</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="row g-4">
+
+    <!-- MAIN ARTICLE -->
+    <div class="col-lg-8">
+      <section class="article-card">
+        <div class="article-body content">
+
+          <p class="lead">
+            Hoy casi cualquier conflicto deja rastros digitales: mensajes, correos, depósitos,
+            publicaciones, llamadas, ubicaciones o archivos. El error frecuente no es “no tener prueba”,
+            sino <strong>dañarla</strong> por desconocimiento. Esta guía está diseñada para ayudarte a
+            preservar evidencia digital con orden, sin tecnicismos innecesarios y con visión jurídica.
+          </p>
+
+          <div class="callout warning">
+            <div class="title"><i class="bi bi-exclamation-triangle me-1"></i> Regla de oro</div>
+            <div>
+              La evidencia digital vale por su <strong>integridad</strong> (no alteración) y su
+              <strong>trazabilidad</strong> (poder explicar cómo se obtuvo y conservó).
+              Si editas, recortas o “arreglas” un archivo, puedes debilitarlo.
+            </div>
+          </div>
+
+          <h2 id="que-es">1) ¿Qué se entiende por evidencia digital?</h2>
+          <p>
+            Es toda información con posible valor probatorio que existe en formato electrónico:
+            chats, capturas, audios, videos, correos, documentos, registros de apps,
+            comprobantes, metadatos (fecha/hora), y registros técnicos (por ejemplo, “logs”).
+            En la práctica, lo relevante no es solo el contenido, sino la posibilidad de demostrar
+            que ese contenido es auténtico y que no fue manipulado.
+          </p>
+
+          <h2 id="errores">2) Errores comunes que dañan la prueba</h2>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="mini-card">
+                <div class="k"><i class="bi bi-scissors me-1"></i> Edición/recorte</div>
+                <div class="v">Se pierde contexto y credibilidad</div>
+                <p class="text-secondary mb-0 mt-2">
+                  Un recorte puede ocultar fecha, remitente, conversación completa o continuidad.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mini-card">
+                <div class="k"><i class="bi bi-arrow-repeat me-1"></i> Reenviar todo</div>
+                <div class="v">Se cambia el rastro original</div>
+                <p class="text-secondary mb-0 mt-2">
+                  Reenviar a otro chat/correo puede modificar metadatos o el contexto del mensaje.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mini-card">
+                <div class="k"><i class="bi bi-cloud-slash me-1"></i> No respaldar</div>
+                <div class="v">Riesgo de pérdida total</div>
+                <p class="text-secondary mb-0 mt-2">
+                  Cambios de teléfono, robos o fallas del dispositivo pueden borrar información.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mini-card">
+                <div class="k"><i class="bi bi-person-check me-1"></i> “Me lo dijo alguien”</div>
+                <div class="v">Testimonio sin soporte digital</div>
+                <p class="text-secondary mb-0 mt-2">
+                  Sin soporte verificable, el caso se vuelve frágil frente a contradicción.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <h2 id="checklist">3) Checklist: cómo preservar evidencia (paso a paso)</h2>
+          <p>
+            Este checklist está pensado para que un lector no técnico pueda actuar con orden.
+            Si el caso es sensible, es recomendable asesoría profesional para no comprometer la prueba.
+          </p>
+
+          <div class="checklist">
+            <div class="check-item">
+              <div class="check-icon"><i class="bi bi-1-circle"></i></div>
+              <div>
+                <strong>Conserva el original</strong>
+                <div class="text-secondary">
+                  Guarda el archivo tal como está (foto, audio, PDF, video). Evita filtros, recortes o ediciones.
+                </div>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <div class="check-icon"><i class="bi bi-2-circle"></i></div>
+              <div>
+                <strong>Haz respaldo doble</strong>
+                <div class="text-secondary">
+                  Copia en USB/disco y también en nube confiable. Si una falla, la otra protege la evidencia.
+                </div>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <div class="check-icon"><i class="bi bi-3-circle"></i></div>
+              <div>
+                <strong>Documenta el contexto</strong>
+                <div class="text-secondary">
+                  Anota: fecha/hora, quiénes participan, qué pasó antes y después, y por qué es relevante.
+                </div>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <div class="check-icon"><i class="bi bi-4-circle"></i></div>
+              <div>
+                <strong>Capturas completas</strong>
+                <div class="text-secondary">
+                  Incluye nombre/alias, número/correo visible, hora y continuidad del chat (no solo una línea).
+                </div>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <div class="check-icon"><i class="bi bi-5-circle"></i></div>
+              <div>
+                <strong>Evita compartir la evidencia</strong>
+                <div class="text-secondary">
+                  No la publiques en redes ni la reenvíes innecesariamente: aumenta el riesgo de alteración o exposición.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h2 id="tipos">4) Recomendaciones por tipo de evidencia</h2>
+
+          <h3>Chats (WhatsApp/Telegram/Messenger)</h3>
+          <p>
+            Prioriza capturas donde se vea la conversación completa y los datos de identificación.
+            Cuando sea posible, exporta la conversación desde la propia aplicación (sin manipular contenido).
+            La clave es conservar continuidad y contexto.
+          </p>
+
+          <h3>Correos electrónicos</h3>
+          <p>
+            Conserva el correo completo (no solo la impresión). Guarda el mensaje tal como está, con remitente,
+            asunto y fecha. Si el correo contiene enlaces, documenta su apariencia sin interactuar impulsivamente
+            con ellos.
+          </p>
+
+          <h3>Archivos (PDF, contratos, imágenes, videos)</h3>
+          <p>
+            Evita convertir formatos si no es necesario. Cada conversión puede modificar propiedades del archivo.
+            Si necesitas compartirlo, trabaja con copias, no con el original.
+          </p>
+
+          <div class="callout info">
+            <div class="title"><i class="bi bi-info-circle me-1"></i> Enfoque procesal</div>
+            <div>
+              En un proceso, no solo importa “qué dice” la evidencia, sino “cómo se obtuvo” y “cómo se conservó”.
+              Una conservación ordenada fortalece la credibilidad y facilita el análisis pericial.
+            </div>
+          </div>
+
+          <h2 id="cierre">Conclusión</h2>
+          <p>
+            La evidencia digital es parte esencial del Derecho moderno.
+            Preservarla bien no requiere ser técnico: requiere orden, prudencia y respeto por la integridad del dato.
+            Una buena conservación puede marcar la diferencia entre una afirmación y una prueba sólida.
+          </p>
+
+          <hr class="my-4">
+
+          <div class="d-flex flex-wrap gap-2">
+            <span class="badge rounded-pill text-bg-warning">
+              <i class="bi bi-tag me-1"></i> Prueba
+            </span>
+            <span class="badge rounded-pill text-bg-light border">
+              <i class="bi bi-tag me-1"></i> Buenas prácticas
+            </span>
+            <span class="badge rounded-pill text-bg-light border">
+              <i class="bi bi-tag me-1"></i> Prevención
+            </span>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="col-lg-4">
+      <div class="toc mb-4">
+        <div class="fw-bold mb-2"><i class="bi bi-list-check me-1"></i> En esta guía</div>
+        <div class="small mb-2">Navega rápido por el contenido:</div>
+        <ol class="mb-0 ps-3">
+          <li><a href="#que-es">¿Qué es evidencia digital?</a></li>
+          <li><a href="#errores">Errores que la dañan</a></li>
+          <li><a href="#checklist">Checklist paso a paso</a></li>
+          <li><a href="#tipos">Recomendaciones por tipo</a></li>
+          <li><a href="#cierre">Conclusión</a></li>
+        </ol>
+      </div>
+
+      <div class="article-card mb-4">
+        <div class="article-body">
+          <div class="fw-bold mb-2"><i class="bi bi-journal-text me-1"></i> Nota profesional</div>
+          <p class="text-secondary mb-0">
+            Si el caso involucra riesgo alto (fraude bancario, amenazas, extorsión, accesos indebidos),
+            la asesoría temprana puede evitar pérdida de evidencia o vulneración de derechos.
+          </p>
+        </div>
+      </div>
+  </div>
+
+  <!-- AUTOR -->
+      <div class="author-box">
+        <strong>Autor</strong><br />
+        Douglas Rivas<br />
+        <span class="text-secondary">
+          Abogado – Especialista en Derecho Digital, Delitos Informáticos y Nuevas Tecnologías
+        </span>
+      </div>
+      
+  <!-- BACK -->
+  <div class="mt-4 back-actions">
+    <a href="blog.html" class="btn btn-outline-secondary">
+      <i class="bi bi-arrow-left me-1"></i> Volver al Blog
+    </a>
+    <a href="contacto.html" class="btn btn-dark">
+      <i class="bi bi-chat-dots me-1"></i> Consultar
+    </a>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="py-3 bg-dark text-center text-secondary small mt-5">
+  <div class="container">
+    © 2025 Douglas Rivas – Derecho Digital y Delitos Informáticos
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

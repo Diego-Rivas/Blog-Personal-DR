@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Informática Forense - Douglas Rivas</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- Iconos Bootstrap -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+  />
+
+  <link rel="shortcut icon" href="../img/Untitled design.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../style/style.css" />
+
+  <style>
+    .img-nav { width: 100px; }
+
+    .page-wrap {
+      padding-top: 6.5rem;
+      padding-bottom: 3rem;
+    }
+
+    .article-hero {
+      background: #0b1220;
+      color: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 1.5rem;
+    }
+
+    .article-body h2 {
+      margin-top: 2.2rem;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+    }
+
+    .article-body p {
+      line-height: 1.75;
+      color: #334155;
+    }
+
+    .key-callout {
+      margin: 1.25rem 0;
+      padding: 1rem 1.1rem;
+      border-radius: 14px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #0f172a;
+      color: #0f172a;
+    }
+
+    /* ✅ Ubicación innovadora: panel flotante */
+    .float-panel {
+      float: right;
+      width: 450px;
+      margin: 0.25rem 0 1.25rem 1.25rem;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.07);
+    }
+
+    .float-panel img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+
+    .float-panel .caption {
+      padding: 0.9rem 1rem;
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      color: #334155;
+      font-size: 0.95rem;
+    }
+
+    /* En móvil: quitar flotado y ponerlo normal */
+    @media (max-width: 992px) {
+      .float-panel {
+        float: none;
+        width: 100%;
+        margin: 1rem 0;
+      }
+      .float-panel img {
+        height: 260px;
+      }
+    }
+
+    .author-box {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      clear: both; /* para que el autor no “suba” al lado del float */
+    }
+    html, body { height: 100%; }
+
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.bio-container{
+  flex: 1; /* empuja el footer hacia abajo */
+}
+
+footer{
+  margin-top: auto; /* garantiza footer al fondo */
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="../index.html">
+        <img src="../img/Untitled design.png" alt="Logo" class="img-nav" />
+      Douglas Rivas - Delitos Informáticos
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="biografi.html">Biografía</a></li>
+          <li class="nav-item"><a class="nav-link" href="categorias.html">Categorías</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <br>
+  <br>
+  <main class="container page-wrap">
+
+    <!-- HERO -->
+    <section class="article-hero">
+      <h1 class="fw-bold mb-2">Informática Forense</h1>
+      <p class="mb-0 opacity-75">La ciencia que conecta la tecnología con la verdad procesal</p>
+    </section>
+
+    <article class="article-body">
+
+      <h2>Introducción</h2>
+      <p>
+        La informática forense se ha convertido en una disciplina clave dentro del Derecho Penal moderno. En una sociedad
+        donde gran parte de la actividad humana deja rastro digital, la verdad procesal ya no se construye únicamente con
+        documentos físicos o testimonios, sino también con datos electrónicos.
+      </p>
+      <p>
+        Desde una visión jurídica, la informática forense no es solo una herramienta técnica, sino un medio indispensable
+        para garantizar investigaciones penales eficaces y respetuosas del debido proceso.
+      </p>
+
+      <h2>1. ¿Qué es la informática forense?</h2>
+      <p>
+        La informática forense puede definirse como la disciplina que se encarga de identificar, obtener, preservar,
+        analizar y presentar información digital con valor probatorio, utilizando métodos técnicos y científicos.
+      </p>
+      <p>
+        Su objetivo principal no es investigar personas, sino analizar sistemas, dispositivos y datos, para reconstruir
+        hechos relevantes desde una perspectiva objetiva y verificable.
+      </p>
+
+      <h2>2. La informática forense en el proceso penal</h2>
+      <p>
+        En el proceso penal, la informática forense cumple una función esencial: transformar datos digitales en prueba
+        jurídicamente válida.
+      </p>
+      <p>
+        Correos electrónicos, archivos, registros de sistemas, dispositivos móviles, servidores y plataformas digitales
+        pueden contener información decisiva para acreditar la existencia del delito, determinar la forma de ejecución,
+        establecer la autoría o participación, y descartar imputaciones infundadas.
+      </p>
+      <p>
+        Sin análisis forense, la evidencia digital carece de contexto y fiabilidad.
+      </p>
+
+      <h2>3. Principios que rigen la informática forense</h2>
+
+      <!-- IMAGEN EN LUGAR NUEVO: PANEL FLOTANTE -->
+      <aside class="float-panel" aria-label="Panel visual de informática forense">
+        <img src="../img/Forencia Informatica.png" alt="Informática forense y evidencia digital">
+        <div class="caption">
+          <i class="bi bi-shield-lock me-1"></i>
+          Principios clave: legalidad, integridad, autenticidad y cadena de custodia.
+        </div>
+      </aside>
+
+      <p>
+        Desde un enfoque jurídico–procesal, la informática forense debe respetar principios fundamentales, entre ellos:
+      </p>
+      <ul>
+        <li><strong>Legalidad:</strong> toda obtención de datos debe estar autorizada y justificada.</li>
+        <li><strong>Integridad:</strong> la información no debe ser alterada.</li>
+        <li><strong>Autenticidad:</strong> debe acreditarse que los datos corresponden al hecho investigado.</li>
+        <li><strong>Cadena de custodia:</strong> debe documentarse quién accede a la evidencia y cómo se maneja.</li>
+      </ul>
+      <p>
+        El incumplimiento de estos principios puede provocar la exclusión de la prueba o la nulidad del acto procesal.
+      </p>
+
+      <h2>4. El perito informático forense</h2>
+      <p>
+        El perito informático forense es un auxiliar técnico del proceso, no un sustituto del juez. Su función es analizar
+        técnicamente la evidencia digital, explicar los hallazgos de forma clara, y permitir que el juez valore jurídicamente
+        la prueba.
+      </p>
+      <p>
+        Desde una perspectiva crítica, el juez no puede limitarse a aceptar el dictamen pericial; debe comprender su alcance,
+        límites y coherencia, preservando su función de valoración probatoria.
+      </p>
+
+      <h2>5. Informática forense y delitos informáticos</h2>
+      <p>
+        En los delitos informáticos, la informática forense es el eje de la investigación. Sin ella, resulta casi imposible
+        probar conductas como accesos indebidos a sistemas, manipulación de datos, fraudes digitales, suplantación de identidad
+        y sabotaje informático.
+      </p>
+      <p>
+        La prueba forense permite vincular la conducta técnica con la norma penal, evitando interpretaciones arbitrarias o
+        presunciones indebidas.
+      </p>
+
+      <h2>6. Garantías y límites</h2>
+      <p>
+        Un aspecto esencial es comprender que no todo lo técnicamente posible es jurídicamente válido. La informática forense
+        debe operar dentro de los límites del debido proceso, la privacidad y la defensa técnica.
+      </p>
+      <p>
+        El uso indiscriminado de herramientas forenses, sin control judicial o sin respeto a derechos fundamentales, debilita
+        la legitimidad del proceso penal, aunque la información obtenida sea relevante.
+      </p>
+
+      <h2>Reflexión final</h2>
+      <p>
+        La informática forense representa el punto de encuentro entre tecnología y Derecho. No es una moda ni una herramienta
+        exclusiva de expertos técnicos; es una disciplina indispensable para la justicia penal contemporánea.
+      </p>
+
+      <div class="key-callout">
+        Desde una visión formativa, el desafío no es solo tecnológico, sino jurídico:
+        comprender la evidencia digital, valorarla correctamente y utilizarla sin sacrificar garantías procesales.
+      </div>
+
+      <p>
+        En un mundo donde los delitos dejan huella digital, la informática forense se convierte en el lenguaje moderno de la
+        verdad procesal.
+      </p>
+
+      <!-- AUTOR -->
+      <div class="author-box">
+        <strong> Autor</strong><br />
+        Douglas Rivas<br />
+        <span class="text-secondary">
+          Abogado – Especialista en Derecho Digital, Delitos Informáticos y Nuevas Tecnologías
+        </span>
+      </div>
+
+    </article>
+
+    <div class="mt-4 actions">
+  <a href="categorias.html" class="btn btn-outline-secondary">
+    <i class="bi bi-arrow-left me-1"></i> Volver a Categorias
+  </a>
+</div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-3 bg-dark text-center text-secondary small">
+    <div class="container">
+      © 2025 Blog de Douglas Rivas.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

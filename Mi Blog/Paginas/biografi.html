@@ -17,20 +17,26 @@
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
   >
 
-  <link rel="stylesheet" href="../style/style.css">
-
+  <link rel="shortcut icon" href="../img/Untitled design.png" type="image/x-icon">
   <style>
     /* Estilo especial para esta página */
+
+    /* Navbar brand responsive (igual que index) */
+        .img-nav{ width: 100px; }
+@media (max-width: 576px){
+  .img-nav{ width: 52px; }
+  .navbar-brand{ font-size: 1.05rem; }
+}
+    html, body { height: 100%; }
 
     .bio-container {
       padding-top: 3rem;
       padding-bottom: 3rem;
     }
-
     .bio-img {
-      width: 100%;
-      border-radius: 4px;
-      object-fit: cover;
+      width: 200px;
+      border-radius: 8px;
+      object-fit:cover;
       border: 1px solid #d1d5db;
     }
 
@@ -68,6 +74,82 @@
       color: #374151;
       line-height: 1.65;
     }
+
+    body{
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bio-container{
+      flex: 1; /* empuja el footer hacia abajo */
+    }
+
+    footer{
+      margin-top: auto; /* garantiza footer al fondo */
+    }
+
+    /*CARDS */
+    .participation-wrap{
+      margin-top: 3rem;
+    }
+
+    .participation-title{
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: .35rem;
+    }
+
+    .participation-sub{
+      color: #64748b;
+      margin-bottom: 1.25rem;
+      max-width: 72ch;
+    }
+
+    .p-card{
+      border-radius: 16px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 10px 26px rgba(2,6,23,.06);
+      overflow: hidden;
+      height: 100%;
+      transition: transform .15s ease, box-shadow .15s ease;
+      background: #fff;
+    }
+
+    .p-card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(2,6,23,.10);
+    }
+
+    .p-img{
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .p-badge{
+      font-size: .78rem;
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    .p-meta{
+      color:#64748b;
+      font-size:.9rem;
+    }
+
+    .p-card h5{
+      font-weight: 800;
+      color:#0f172a;
+    }
+
+    .p-card p{
+      color:#334155;
+      line-height: 1.65;
+      margin-bottom: 0;
+    }
   </style>
 </head>
 <body>
@@ -75,19 +157,34 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="../index.html">
-      <i class="bi bi-shield-lock"></i> Douglas Rivas - Delitos Informáticos
-    </a>
+    <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="../index.html">
+  <img src="../img/Untitled design.png" alt="Foto" class="img-nav">
 
+  <!-- Texto móvil -->
+  <span class="d-inline d-sm-none">
+    Douglas Rivas - Delitos Informaticos
+  </span>
+
+  <!-- Texto tablet -->
+  <span class="d-none d-sm-inline d-lg-none">
+    Douglas Rivas – Delitos Informaticos
+  </span>
+
+  <!-- Texto desktop -->
+  <span class="d-none d-lg-inline">
+    Douglas Rivas – Delitos Informáticos
+  </span>
+</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link active" href="biografi.html">Biografía</a></li>
-        <li class="nav-item"><a class="nav-link" href="recursos.html">Recursos</a></li>
+        <li class="nav-item"><a class="nav-link active" href="../index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="biografi.html">Biografía</a></li>
+        <li class="nav-item"><a class="nav-link" href="categorias.html">Categorias</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
         <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
       </ul>
     </div>
@@ -96,25 +193,28 @@
 
 <br>
 <br>
-
+<br>
+<br>
+<br>
 <!-- CONTENIDO BIO -->
 <section class="bio-container container">
   <div class="row g-4 align-items-start">
 
     <!-- Imagen -->
     <div class="col-lg-5">
-      <img src="../img/" alt="Foto" class="bio-img">
+      <img src="../img/FOTODRIVAS2.JPG" alt="Foto" class="bio-img">
     </div>
 
     <!-- Panel de información -->
     <div class="col-lg-7">
       <div class="bio-panel">
         <h2>Douglas Rivas</h2>
-        <small>Abogado en Delitos Informáticos · Especialista en Delitos Informáticos</small>
+        <small> Abogado y Notario · Derecho Informático, Derecho Penal, Derecho Laboral y Nuevas Tecnologías</small>
         <hr>
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime ipsam similique voluptatum cum non impedit voluptate debitis nisi autem,
-          eos, deserunt quo maiores placeat voluptas incidunt aliquid, ipsum fugiat rem.
+          Abogado y Notario de la República de El Salvador, con amplia trayectoria en el
+          ejercicio profesional, experiencia en el Órgano Judicial y una sólida formación
+          en derecho informático, nuevas tecnologías y análisis jurídico integral.
         </p>
       </div>
     </div>
@@ -128,26 +228,169 @@
   <!-- Texto de la biografía -->
   <div class="bio-body-text">
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lacinia
-      venenatis felis, vel tempus turpis sollicitudin a. Mauris suscipit nunc non
-      quam laoreet, eget sodales dui fermentum. Aenean id dictum libero, vitae
-      consequat urna. Sed vulputate porta interdum. Vivamus id luctus odio.
+      Soy Douglas Antonio Rivas Pérez, Abogado y Notario de la República de El Salvador,
+      autorizado por la Corte Suprema de Justicia desde el año 2006. Mi trayectoria
+      profesional se ha desarrollado tanto en el ámbito judicial como en el ejercicio
+      privado del derecho, lo que me ha permitido adquirir una visión práctica,
+      técnica y equilibrada del sistema jurídico.
     </p>
 
     <p>
-      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-      turpis egestas. Integer eleifend tincidunt sapien, sit amet faucibus ipsum
-      vulputate vel. Donec egestas tincidunt leo, vitae facilisis tortor cursus vitae.
-      Etiam volutpat augue nec massa pharetra, vitae facilisis arcu malesuada.
+      Durante más de una década me desempeñé en el Órgano Judicial de la Corte Suprema
+      de Justicia, ocupando el cargo de Resolutor en el Juzgado Séptimo de Instrucción
+      del Centro Integrado de Justicia Penal Doctor Isidro Menéndez, tribunal en el que
+      se tramitan procesos de alta complejidad, incluyendo delitos graves y casos de
+      relevancia nacional. Esta experiencia fortaleció mi formación en materia penal,
+      análisis probatorio y técnica procesal.
     </p>
 
     <p>
-      Duis imperdiet blandit eros, eget tristique nisi vehicula non. Morbi a urna
-      scelerisque, vehicula sem eget, faucibus justo. Integer facilisis, sapien
-      interdum tempus molestie, nisi massa laoreet ligula, vitae pulvinar orci mi sit
-      amet elit. Suspendisse potenti. Nunc dictum enim non massa accumsan mattis.
+      Paralelamente, he ejercido como asesor jurídico, apoderado judicial y mercantil
+      de diversas sociedades nacionales e internacionales, brindando asesoría en
+      materias laboral, mercantil, contractual y administrativa, así como en la
+      inscripción de marcas, patentes y gestión de permisos ante instituciones del
+      Estado. He colaborado con empresas del sector comercial, tecnológico,
+      alimenticio y de servicios, tanto en El Salvador como en la región.
+    </p>
+
+    <p>
+      Desde etapas tempranas de mi formación he mantenido un vínculo constante con la
+      tecnología, siendo técnico y programador de sistemas desde 1998. Esta base
+      técnica me permitió especializarme posteriormente en derecho informático,
+      delitos informáticos, ciberseguridad, evidencia digital y protección de datos,
+      integrando el conocimiento jurídico con el entendimiento técnico de los sistemas
+      informáticos.
+    </p>
+
+    <p>
+      He participado activamente en procesos de análisis y reforma legislativa,
+      formando parte de la mesa técnica de discusión de las reformas a la Ley Especial
+      contra los Delitos Informáticos y Conexos, impulsadas por la Asamblea Legislativa,
+      promoviendo figuras jurídicas como el Agente Encubierto Digital y el
+      fortalecimiento del marco normativo en materia de cibercriminalidad.
+    </p>
+
+    <p>
+      Mi ejercicio profesional incluye una amplia labor académica y formativa, habiendo
+      impartido conferencias, diplomados y capacitaciones en universidades, colegios
+      profesionales, empresas privadas y entidades gubernamentales, sobre temas como
+      delitos informáticos, evidencia digital, firma electrónica, comercio electrónico,
+      ciberseguridad, inteligencia artificial y uso responsable de las tecnologías.
+    </p>
+
+    <p>
+      Asimismo, he tenido una participación constante en medios de comunicación
+      televisivos, radiales y escritos, abordando temas de interés público relacionados
+      con la cibercriminalidad, el fraude electrónico, la protección de datos, el uso
+      de criptomonedas y los riesgos del entorno digital, contribuyendo a la educación
+      y prevención desde una perspectiva jurídica.
+    </p>
+
+    <p>
+      Actualmente ejerzo como abogado consultor y capacitador en el libre ejercicio
+      profesional, con énfasis en derecho informático, derecho penal, nuevas
+      tecnologías y análisis jurídico aplicado. Este blog surge como un espacio de
+      divulgación, reflexión y análisis, donde comparto conocimiento jurídico y temas
+      de interés general, con un lenguaje claro y accesible para todo público.
     </p>
   </div>
+
+  <!-- CARDS -->
+  <section class="participation-wrap">
+    <h3 class="participation-title">Participación institucional y divulgación pública</h3>
+    <p class="participation-sub">
+      Experiencia jurídica aplicada en escenarios académicos, institucionales y de comunicación,
+      con enfoque en derecho penal, derecho digital, evidencia y cultura preventiva.
+    </p>
+
+    <div class="row g-4">
+
+      <!-- CARD 1 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="p-card">
+          <img src="../img/COLEGIO ABOGADOS DE COSTA RICA.jpg" class="p-img" alt="Colegio de Abogados de Costa Rica">
+          <div class="p-3">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <span class="badge rounded-pill p-badge">
+                <i class="bi bi-people me-1"></i> Foro profesional
+              </span>
+              <span class="p-meta"><i class="bi bi-award me-1"></i> Participación</span>
+            </div>
+            <h5 class="mb-2">Colegio de Abogados de Costa Rica</h5>
+            <p>
+              Intercambio técnico-jurídico en espacios profesionales regionales,
+              fortaleciendo enfoques comparados en derecho digital, responsabilidad
+              penal tecnológica y buenas prácticas de litigación.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="p-card">
+          <img src="../img/foto diploma CSJ.jpg" class="p-img" alt="Diploma Corte Suprema de Justicia">
+          <div class="p-3">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <span class="badge rounded-pill p-badge">
+                <i class="bi bi-mortarboard me-1"></i> Formación
+              </span>
+              <span class="p-meta"><i class="bi bi-check2-circle me-1"></i> Enfoque</span>
+            </div>
+            <h5 class="mb-2">Formación y experiencia judicial</h5>
+            <p>
+              Consolidación de competencias en análisis probatorio, técnica procesal
+              y fundamentación de resoluciones, integrando criterios de legalidad,
+              debido proceso y control de la prueba en materia penal.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="p-card">
+          <img src="../img/Foto canal 12.jpg" class="p-img" alt="Entrevista en Canal 12">
+          <div class="p-3">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <span class="badge rounded-pill p-badge">
+                <i class="bi bi-broadcast me-1"></i> Medios
+              </span>
+              <span class="p-meta"><i class="bi bi-shield-lock me-1"></i> Prevención</span>
+            </div>
+            <h5 class="mb-2">Entrevista – Canal 12</h5>
+            <p>
+              Divulgación jurídica para el público general sobre prevención del fraude
+              digital, delitos informáticos, evidencia electrónica y medidas prácticas
+              para reducir riesgos en redes, banca y comunicaciones.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="p-card">
+          <img src="../img/Foto Radio legislativa.jpg" class="p-img" alt="Entrevista Radio Legislativa">
+          <div class="p-3">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <span class="badge rounded-pill p-badge">
+                <i class="bi bi-mic me-1"></i> Radio
+              </span>
+              <span class="p-meta"><i class="bi bi-journal-text me-1"></i> Análisis</span>
+            </div>
+            <h5 class="mb-2">Entrevista – Radio Legislativa</h5>
+            <p>
+              Aporte de análisis jurídico y criterios de política criminal en temas de
+              cibercriminalidad, reformas normativas, evidencia digital y equilibrio entre
+              eficacia investigativa y garantías constitucionales.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
 </section>
 
